@@ -2,8 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 29
 
     lintOptions {
         abortOnError false
@@ -11,7 +10,7 @@ android {
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -30,16 +29,17 @@ publish {
     userOrg = 'taishi-y'
     groupId = 'com.taishi-y'
     artifactId = 'flipprogressdialog'
-    publishVersion = '0.1.0'
+    publishVersion = '0.1.1'
     desc = 'Flip Progress Dialog'
     website = 'https://github.com/taishi-y/flipprogressdialog'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api "com.google.android.material:material:1.1.0-alpha10"
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    testCompile 'junit:junit:4.12'
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    testImplementation 'junit:junit:4.12'
 }

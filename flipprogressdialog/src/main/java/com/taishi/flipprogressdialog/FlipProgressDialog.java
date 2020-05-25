@@ -10,7 +10,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -238,7 +238,8 @@ public class FlipProgressDialog extends DialogFragment {
 		if (dialog != null && getRetainInstance()) {
 			dialog.setDismissMessage(null);
 		}
-		handler.removeCallbacks(r);
+		if (handler != null)
+			handler.removeCallbacks(r);
 		super.onDestroyView();
 	}
 
